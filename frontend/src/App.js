@@ -7,6 +7,9 @@ class App {
   constructor($target) {
     this.$target = $target;
 
+    // this.Loading = new Loading({
+    //   $target,
+    // });
     this.DarkModeToggle = new DarkModeToggle({
       $target,
       onSearch: (keyword) => {

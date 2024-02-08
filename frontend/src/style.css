@@ -14,6 +14,11 @@ html {
   box-sizing: border-box;
 }
 
+body {
+  background-color: var(--background);
+  color: var(--textColor);
+}
+
 body * {
   font-family: Goyang;
 }
@@ -95,6 +100,20 @@ body * {
   width: 100%;
 }
 
+.DarkModeToggle {
+  width: 30px;
+  height: 30px;
+}
+
+.Loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+}
+
 @media screen and (max-width: 992px) {
   .SearchResult {
     grid-template-columns: repeat(3, minmax(250px, 1fr));
@@ -110,8 +129,8 @@ body * {
     grid-template-columns: repeat(1, minmax(250px, 1fr));
   }
 }
-/* 
-@media (prefers-color-scheme: dark) {
+
+/* @media (prefers-color-scheme: dark) {
   body {
     background-color: #000;
     color: white;

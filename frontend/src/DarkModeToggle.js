@@ -13,12 +13,12 @@ class DarkModeToggle {
     $target.appendChild($wrapper);
 
     $DarkModeToggle.addEventListener("change", (e) => {
-      console.dir(e.target.checked);
       this.setColorMode(e.target.checked);
     });
 
     this.initColorMode();
   }
+
   initColorMode() {
     //초기화
     //isDarkMode state, checkbox 상태, html attr

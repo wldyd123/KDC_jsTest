@@ -3,6 +3,7 @@ class Loading {
     const $loading = document.createElement("div");
     this.$loading = $loading;
     $target.appendChild(this.$loading);
+
     this.render();
   }
 
