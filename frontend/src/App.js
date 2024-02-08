@@ -7,9 +7,9 @@ class App {
   constructor($target) {
     this.$target = $target;
 
-    // this.Loading = new Loading({
-    //   $target,
-    // });
+    this.Loading = new Loading({
+      $target,
+    });
     this.DarkModeToggle = new DarkModeToggle({
       $target,
       onSearch: (keyword) => {
@@ -19,7 +19,11 @@ class App {
     this.searchInput = new SearchInput({
       $target,
       onSearch: (keyword) => {
-        api.fetchCats(keyword).then(({ data }) => this.setState(data));
+        this.Loading.show();
+        api.fetchCats(keyword).then(({ data }) => {
+          this.setState(data);
+          this.Loading.hide();
+        });
       },
     });
 
