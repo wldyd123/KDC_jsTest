@@ -18,6 +18,19 @@ class ImageInfo {
     this.render();
   }
 
+  showDetail(data) {
+    //상세 정보 요청
+    api.fetchCatDetail(data.cat.id).then(({ data }) => {
+      //정보를 업데이트 한다
+      this.setState({ visible: true, cat: data });
+    });
+  }
+  closeImageInfo() {
+    this.setState({
+      visible: false,
+      cat: null,
+    });
+  }
   render() {
     if (this.data.visible) {
       const { name, url, temperament, origin } = this.data.image;
@@ -35,6 +48,23 @@ class ImageInfo {
           </div>
         </div>`;
       this.$imageInfo.style.display = "block";
+      // this.$imageInfo.querySelector(".close").addEventListener("click", (e) => {
+      //   this.closeImageInfo();
+      // });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          this.closeImageInfo();
+        }
+      });
+      this.$imageInfo.addEventListener("click", (e) => {
+        console.log(e.target.className);
+        if (
+          e.target.className === "ImageInfo" ||
+          e.target.className === "close"
+        ) {
+          this.closeImageInfo();
+        }
+      });
     } else {
       this.$imageInfo.style.display = "none";
     }
